@@ -33,6 +33,10 @@
             ]
         },
         {
+            "operation": "diff",
+            "file": "constants.diff"
+        },
+        {
             "operation": "exec",
             "command": "qmk git-submodule",
             "at": "$QMK_BUILD"
