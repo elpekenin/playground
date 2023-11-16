@@ -58,7 +58,7 @@
         },
         {
             "operation": "cp",
-            "orig": "$HOME/access/users/elpekenin/painter/fonts/fira_code.qff.*",
+            "orig": "$USERSPACE/painter/fonts/fira_code.qff.*",
             "dest": "keyboards/handwired/onekey/keymaps/stm32_tests"
         },
         {
