@@ -24,5 +24,9 @@
             "operation": "diff",
             "file": "h7_ram_ld.diff"
         }
-    ]
+    ],
+    "compile_command": "qmk compile -kb handwired/onekey/stm32h7 -km stm32_tests -e TARGET=uart",
+    "wsl": {
+        "destination": "/mnt/d"
+    }
 }

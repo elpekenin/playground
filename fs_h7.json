@@ -52,7 +52,10 @@
             "file": "h7_ram_ld.diff"
         }
     ],
-    "compile_command": "qmk compile -kb handwired/onekey/stm32h7 -km stm32_tests -e TARGET=debug",
+    "compile_command": "qmk compile -kb handwired/onekey/stm32h7 -km stm32_tests -e TARGET=fs",
+    "wsl": {
+        "destination": "/mnt/d"
+    },
     "post_compilation": [
         {
             // debugging config
@@ -65,10 +68,5 @@
         //     "operation": "exec",
         //     "command": "code $QMK_BUILD"
         // },
-        {
-            // copy binaries from WSL into Windows
-            "operation": "exec",
-            "command": "cp binaries/* /mnt/d"
-        }
     ]
 }
