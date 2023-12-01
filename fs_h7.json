@@ -1,10 +1,13 @@
 {
     "repo": "https://github.com/qmk/qmk_firmware",
     "branch": "develop",
-    "keyboard": "handwired/onekey/stm32h7",
-    "keymap": "stm32_tests",
     "path": "$QMK_BUILD",
     "operations": [
+        {
+            "operation": "merge",
+            "repo": "https://github.com/elpekenin/qmk_firmware",
+            "branch": "feature/h750-support"
+        },
         {
             // qp_inversion
             "operation": "pr",
@@ -14,27 +17,6 @@
             "operation": "merge",
             "repo": "https://github.com/tzarc/qmk_firmware",
             "branch": "littlefs-binding"
-        },
-        {
-            // H7 SPI
-            "operation": "pr",
-            "id": 21843
-        },
-        {
-            "operation": "checkout",
-            "repo": "https://github.com/elpekenin/qmk_firmware",
-            "branch": "feature/h750-support",
-            "files": [
-                "data/schemas/keyboard.jsonschema",
-                "lib/python/qmk/constants.py",
-                "platforms/chibios/mcu_selection.mk",
-                "platforms/chibios/boards/GENERIC_STM32_H750XB", 
-                "platforms/chibios/boards/common/ld/STM32H750xB.ld"
-            ]
-        },
-        {
-            "operation": "diff",
-            "file": "constants.diff"
         },
         {
             "operation": "exec",
@@ -53,7 +35,7 @@
         },
         {
             "operation": "cp",
-            "orig": "keymaps/stm32_tests/*",
+            "orig": "keymaps/fs/*",
             "dest": "keyboards/handwired/onekey/keymaps/stm32_tests"
         },
         {
@@ -68,14 +50,9 @@
         {
             "operation": "diff",
             "file": "h7_ram_ld.diff"
-        },
-        {
-            "operation": "exec",
-            "at": "$QMK_BUILD",
-            "command": "qmk compile -kb handwired/onekey/stm32h7 -km stm32_tests -e TARGET=debug"
         }
     ],
-    "default_compilation": false,
+    "compile_command": "qmk compile -kb handwired/onekey/stm32h7 -km stm32_tests -e TARGET=debug",
     "post_compilation": [
         {
             // debugging config

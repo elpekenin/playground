@@ -1,0 +1,28 @@
+{
+    "repo": "https://github.com/qmk/qmk_firmware",
+    "branch": "develop",
+    "keyboard": "handwired/onekey/stm32h7",
+    "keymap": "stm32_tests",
+    "path": "$QMK_BUILD",
+    "operations": [
+        {
+            "operation": "merge",
+            "repo": "https://github.com/elpekenin/qmk_firmware",
+            "branch": "feature/h750-support"
+        },
+        {
+            "operation": "cp",
+            "orig": "keyboards/handwired/onekey/stm32h7/*",
+            "dest": "keyboards/handwired/onekey/stm32h7"
+        },
+        {
+            "operation": "cp",
+            "orig": "keymaps/uart/*",
+            "dest": "keyboards/handwired/onekey/keymaps/stm32_tests"
+        },
+        {
+            "operation": "diff",
+            "file": "h7_ram_ld.diff"
+        }
+    ]
+}
