@@ -8,4 +8,3 @@
 #define SD1_RTS_PIN A1
 #define SD1_TX_PIN  A2
 #define SD1_RX_PIN  A3
-

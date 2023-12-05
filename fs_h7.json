@@ -26,22 +26,17 @@
         {
             "operation": "cp",
             "orig": "misc/fs_lfs_sdmmc_card.c",
-            "dest": "quantum/filesystem"
-        },
-        {
-            "operation": "cp",
-            "orig": "keyboards/handwired/onekey/stm32h7/*",
-            "dest": "keyboards/handwired/onekey/stm32h7"
+            "destination": "quantum/filesystem"
         },
         {
             "operation": "cp",
             "orig": "keymaps/fs/*",
-            "dest": "keyboards/handwired/onekey/keymaps/stm32_tests"
+            "destination": "keyboards/handwired/onekey/keymaps/tests"
         },
         {
             "operation": "cp",
             "orig": "$USERSPACE/painter/fonts/fira_code.qff.*",
-            "dest": "keyboards/handwired/onekey/keymaps/stm32_tests"
+            "destination": "keyboards/handwired/onekey/keymaps/tests"
         },
         {
             "operation": "diff",
@@ -52,7 +47,7 @@
             "file": "h7_ram_ld.diff"
         }
     ],
-    "compile_command": "qmk compile -kb handwired/onekey/stm32h7 -km stm32_tests -e TARGET=fs",
+    "compile_command": "qmk compile -c -kb handwired/onekey/weact_stm32h750vbt6 -km tests -e TARGET=fs",
     "wsl": {
         "destination": "/mnt/d"
     },
@@ -61,7 +56,7 @@
             // debugging config
             "operation": "cp",
             "orig": "misc/launch.json",
-            "dest": ".vscode"
+            "destination": ".vscode"
         },
         // {
         //     // open VSCode on build folder to debug
