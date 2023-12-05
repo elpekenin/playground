@@ -1,8 +1,6 @@
 {
     "repo": "https://github.com/qmk/qmk_firmware",
     "branch": "develop",
-    "keyboard": "handwired/onekey/stm32h7",
-    "keymap": "stm32_tests",
     "path": "$QMK_BUILD",
     "operations": [
         {
@@ -12,20 +10,15 @@
         },
         {
             "operation": "cp",
-            "orig": "keyboards/handwired/onekey/stm32h7/*",
-            "dest": "keyboards/handwired/onekey/stm32h7"
-        },
-        {
-            "operation": "cp",
             "orig": "keymaps/uart/*",
-            "dest": "keyboards/handwired/onekey/keymaps/stm32_tests"
+            "destination": "keyboards/handwired/onekey/keymaps/tests"
         },
         {
             "operation": "diff",
             "file": "h7_ram_ld.diff"
         }
     ],
-    "compile_command": "qmk compile -kb handwired/onekey/stm32h7 -km stm32_tests -e TARGET=uart",
+    "compile_command": "qmk compile -c -kb handwired/onekey/weact_stm32h750vbt6 -km tests -e TARGET=uart",
     "wsl": {
         "destination": "/mnt/d"
     }
