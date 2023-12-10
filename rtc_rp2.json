@@ -1,0 +1,46 @@
+{
+    "repo": "https://github.com/qmk/qmk_firmware",
+    "branch": "develop",
+    "path": "$QMK_BUILD",
+    "operations": [
+        {
+            "operation": "cp",
+            "orig": "keymaps/rtc/*",
+            "destination": "keyboards/handwired/onekey/keymaps/elpekenin"
+        },
+        {
+            "operation": "cp",
+            "orig": "$USERSPACE/*",
+            "destination": "users/elpekenin"
+        },
+        {
+            "operation": "wget",
+            "url": "https://raw.githubusercontent.com/drashna/qmk_userspace/master/users/drashna/rtc/rtc.c",
+            "path": "users/elpekenin/rtc/rtc.c"
+        },
+        {
+            "operation": "wget",
+            "url": "https://raw.githubusercontent.com/drashna/qmk_userspace/master/users/drashna/rtc/rtc.h",
+            "path": "users/elpekenin/rtc/rtc.h"
+        },
+        {
+            "operation": "wget",
+            "url": "https://raw.githubusercontent.com/drashna/qmk_userspace/master/users/drashna/rtc/ds3231.c",
+            "path": "users/elpekenin/rtc/ds3231.c"
+        },
+        {
+            "operation": "wget",
+            "url": "https://raw.githubusercontent.com/drashna/qmk_userspace/master/users/drashna/rtc/ds3231.h",
+            "path": "users/elpekenin/rtc/ds3231.h"
+        },
+        {
+            "operation": "wget",
+            "url": "https://raw.githubusercontent.com/drashna/qmk_userspace/master/users/drashna/rtc/rtc.mk",
+            "path": "users/elpekenin/mk/rtc.mk"
+        }
+    ],
+    "compile_command": "qmk compile -c -kb handwired/onekey/rp2040 -km elpekenin -e TARGET=rtc",
+    "wsl": {
+        "destination": "/mnt/d"
+    }
+}
