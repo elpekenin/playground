@@ -1,8 +1,8 @@
 diff --git a/quantum/filesystem/rules.mk b/quantum/filesystem/rules.mk
-index 6b15160308..5cc8dda6c3 100644
+index e138253eba..5dc889f0c4 100644
 --- a/quantum/filesystem/rules.mk
 +++ b/quantum/filesystem/rules.mk
-@@ -1,25 +1,25 @@
+@@ -1,23 +1,25 @@
  # Filesystem Configurables
 -VALID_FILESYSTEM_DRIVERS := lfs_spi_flash
 +VALID_FILESYSTEM_DRIVERS := lfs_spi_flash lfs_sdmmc_card
@@ -19,6 +19,7 @@ index 6b15160308..5cc8dda6c3 100644
 +		lfs.c \
 +		lfs_util.c \
 +		fs_lfs_common.c
++	OPT_DEFS += -DLFS_NO_MALLOC
  
  	ifeq ($(strip $(FILESYSTEM_DRIVER)),lfs_spi_flash)
  		FLASH_DRIVER = spi
@@ -30,6 +31,7 @@ index 6b15160308..5cc8dda6c3 100644
 -			lfs_util.c \
 -			fs_lfs_common.c \
 -			fs_lfs_spi_flash.c
+-		OPT_DEFS += -DLFS_NO_MALLOC
 +		SRC += fs_lfs_spi_flash.c
 +
 +	else ifeq ($(strip $(FILESYSTEM_DRIVER)),lfs_sdmmc_card)
@@ -37,6 +39,3 @@ index 6b15160308..5cc8dda6c3 100644
 +
  	endif
  endif
- 
--# TODO: Delete
--OPT_DEFS += -DEXTERNAL_FLASH_SPI_SLAVE_SELECT_PIN=C1
