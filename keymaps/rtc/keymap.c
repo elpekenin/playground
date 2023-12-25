@@ -2,7 +2,8 @@
 
 #include "rtc/rtc.h"
 
-#include "logging.h"
+#include "elpekenin/logging.h"
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_ortho_1x1(KC_A)
